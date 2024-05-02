@@ -22,7 +22,7 @@ class ShowScoreDialog extends StatelessWidget {
         "$title | Score is $score / $questionLength",
         style: TextStyle(
           color: isPassed ? Colors.green : Colors.red,
-          fontSize: 25,
+          fontSize: 20,
           fontFamily: 'Pacifico',
           fontWeight: FontWeight.bold,
         ),
