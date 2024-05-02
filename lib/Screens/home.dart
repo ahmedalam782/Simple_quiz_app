@@ -148,6 +148,8 @@ class _HomeState extends State<Home> {
               if (selectedAnswer == null) {
                 if (ans.isCorrect) {
                   score++;
+                } else {
+                  score--;
                 }
                 setState(() {
                   selectedAnswer = ans;
