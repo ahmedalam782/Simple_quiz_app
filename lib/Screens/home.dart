@@ -108,6 +108,11 @@ class _HomeState extends State<Home> {
             NextButton(
               isLastQuestion: questionIndex == questionList.length - 1,
               onTap: () {
+                if (selectedAnswer != null) {
+                  if (selectedAnswer!.isCorrect) {
+                    score++;
+                  }
+                }
                 if (questionIndex == questionList.length - 1) {
                   showDialog(
                     context: context,
@@ -145,20 +150,9 @@ class _HomeState extends State<Home> {
         for (var ans in questionList[questionIndex].answerQuestion)
           Answer(
             selectHandler: () {
-              if (selectedAnswer == null) {
-                if (ans.isCorrect) {
-                  score++;
-                } else {
-                  score--;
-                }
-                setState(() {
-                  selectedAnswer = ans;
-                });
-              } else {
-                setState(() {
-                  selectedAnswer = ans;
-                });
-              }
+              setState(() {
+                selectedAnswer = ans;
+              });
             },
             answerText: ans.answerText,
             selectedAnswer: ans == selectedAnswer,
